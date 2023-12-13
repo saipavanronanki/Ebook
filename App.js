@@ -1,15 +1,24 @@
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from "./screens/HomeScreen";
-import SettingsScreen from "./screens/SettingsScreen";
-import ProfileScreen from "./screens/ProfileScreen";
+import { createStackNavigator } from "@react-navigation/stack";
 import { Entypo } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import HomeScreen from "./screens/HomeScreen";
+import SettingsScreen from "./screens/SettingsScreen";
+import ProfileScreen from "./screens/ProfileScreen";
+import DetailsScreen from "./screens/DetailsScreen";
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+const HomeStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="Home " component={HomeScreen} />
+    <Stack.Screen name="Details" component={DetailsScreen} />
+  </Stack.Navigator>
+);
 
 export default function App() {
   return (
@@ -17,11 +26,12 @@ export default function App() {
       <Tab.Navigator
         screenOptions={{
           tabBarActiveTintColor: "red",
-        }}>
+        }}
+      >
         <Tab.Screen
           name="Home"
-          component={HomeScreen}
-          options={{
+          component={HomeStack}
+          options={{ headerShown: false,
             tabBarIcon: ({ color, size }) => (
               <Entypo name="home" size={size} color={color} />
             ),
@@ -37,7 +47,7 @@ export default function App() {
           }}
         />
         <Tab.Screen
-          name="Profile "
+          name="Profile"
           component={ProfileScreen}
           options={{
             tabBarIcon: ({ color, size }) => (
@@ -49,12 +59,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
