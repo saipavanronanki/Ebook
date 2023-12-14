@@ -3,8 +3,11 @@ import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 const data = [
-  { id: '1', name: 'Science Fiction', image: require('../images/item2.jpg') },
-  { id: '2', name: 'Novel', image: require('../images/item3.jpg') },
+  { id: '1', name: 'Katha (కథ)', image: require('../images/item2.jpg') },
+  { id: '2', name: 'Prerana (ప్రేరణ)', image: require('../images/item4.jpg') },
+  { id: '3', name: 'Mythological Stories (పౌరాణిక కథలు)', image: require('../images/item1.jpg') },
+  { id: '4', name: 'Historical Stories (చరిత్ర కథలు)', image: require('../images/item3.jpg') },
+  { id: '5', name: 'Detective Stories (డిటెక్టివ్ కథలు)', image: require('../images/item5.jpg') },
   // Add more categories as needed
 ];
 

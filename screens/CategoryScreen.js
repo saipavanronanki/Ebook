@@ -3,16 +3,38 @@ import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 const data = {
-  'Science Fiction': [
+  'Katha (కథ)': [
     { id: '1', title: 'Book 1', image: require('../images/item1.jpg') },
     { id: '2', title: 'Book 2', image: require('../images/item2.jpg') },
     // Add more science fiction books as needed
   ],
-  'Novel': [
+  'Prerana (ప్రేరణ)': [
     { id: '3', title: 'Novel 1', image: require('../images/item3.jpg') },
     { id: '4', title: 'Novel 2', image: require('../images/item4.jpg') },
     // Add more novel books as needed
   ],
+  
+  'Mythological Stories (పౌరాణిక కథలు)': [
+    { id: '5', title: 'Novel 1', image: require('../images/item3.jpg') },
+    { id: '6', title: 'Novel 2', image: require('../images/item4.jpg') },
+    // Add more novel books as needed
+  ],
+  'Historical Stories (చరిత్ర కథలు)': [
+    { id: '7', title: 'Novel 1', image: require('../images/item3.jpg') },
+    { id: '8', title: 'Novel 2', image: require('../images/item4.jpg') },
+    // Add more novel books as needed
+  ],
+  'Detective Stories (డిటెక్టివ్ కథలు)': [
+    { id: '9', title: 'Novel 1', image: require('../images/item3.jpg') },
+    { id: '10', title: 'Novel 2', image: require('../images/item4.jpg') },
+    // Add more novel books as needed
+  ],
+
+
+
+
+
+
   // Add more categories and books as needed
 };
 
