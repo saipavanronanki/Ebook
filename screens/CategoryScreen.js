@@ -4,7 +4,7 @@ import { View, Text, FlatList, TouchableOpacity, StyleSheet, Image } from 'react
 
 const data = {
   'Katha (కథ)': [
-    { id: '1', title: 'Book 1', image: require('../images/item1.jpg') },
+    { id: '1', title: 'విక్రమార్కుడు మరియు బేతాళు', image: require('../images/item1.jpg') },
     { id: '2', title: 'Book 2', image: require('../images/item2.jpg') },
     // Add more science fiction books as needed
   ],

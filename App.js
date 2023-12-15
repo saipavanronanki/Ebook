@@ -24,8 +24,8 @@ const HomeStack = () => (
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator>
+    <NavigationContainer style={{height:10,}}>
+      <Tab.Navigator >
         <Tab.Screen options={{headerShown: false ,tabBarLabel: 'Home',
       tabBarIcon: ({ color, size }) => (
         <Ionicons name="home" color={"blue"} size={28} />
