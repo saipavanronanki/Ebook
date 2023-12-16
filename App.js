@@ -14,6 +14,8 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
 
+
+
 const HomeStack = () => (
   <Stack.Navigator>
     <Stack.Screen  name="App" component={HomeScreen} />
@@ -22,9 +24,10 @@ const HomeStack = () => (
   </Stack.Navigator>
 );
 
+
 const App = () => {
   return (
-    <NavigationContainer style={{height:10,}}>
+    <NavigationContainer  style={{height:10,}}>
       <Tab.Navigator >
         <Tab.Screen options={{headerShown: false ,tabBarLabel: 'Home',
       tabBarIcon: ({ color, size }) => (

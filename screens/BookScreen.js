@@ -1,6 +1,8 @@
 // BookScreen.js
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, FlatList, SafeAreaView, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 const data = {
   'విక్రమార్కుడు మరియు బేతాళు': [
@@ -22,38 +24,59 @@ const data = {
   ],
   // Add more books and stories as needed
 };
-
 const BookScreen = ({ route }) => {
   const { bookTitle } = route.params;
-
   const stories = data[bookTitle];
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  const renderDarkModeToggleIcon = () => (
+    <TouchableOpacity onPress={toggleDarkMode} style={styles.darkModeToggleIcon}>
+      <Icon name={isDarkMode ? 'moon' : 'sunny'} size={34} color="blue" />
+    </TouchableOpacity>
+  );
 
   const renderItem = ({ item }) => (
-    <View style={styles.storyItem}>
+    <View style={[styles.storyItem, isDarkMode && styles.darkModeStoryItem]}>
       <Image source={item.image} style={styles.storyImage} />
-      <Text style={styles.storyTitle}>{item.title}</Text>
-      <Text >{item.content}</Text>
+      <Text style={[styles.storyTitle, isDarkMode && styles.darkModeStoryTitle]}>{item.title}</Text>
+      <Text style={[styles.storyContent, isDarkMode && styles.darkModeStoryContent]}>{item.content}</Text>
     </View>
   );
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.bookTitle}>{bookTitle}</Text>
+    <View style={[styles.container, isDarkMode && styles.darkModeContainer]}>
+      <View style={styles.header}>
+        <Text style={[styles.bookTitle, isDarkMode && styles.darkModeBookTitle]}>{bookTitle}</Text>
+        {renderDarkModeToggleIcon()}
+      </View>
       <FlatList data={stories} renderItem={renderItem} keyExtractor={(item) => item.id} numColumns={1} />
     </View>
   );
 };
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    padding: 14,
     height: '100%',
+    backgroundColor: '#FFFFFF',
+  },
+  darkModeContainer: {
+    backgroundColor: '#333333',
   },
   bookTitle: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
+    color: '#333333',
+  },
+  darkModeBookTitle: {
+    color: '#FFFFFF',
   },
   storyItem: {
     flex: 2,
@@ -62,7 +85,10 @@ const styles = StyleSheet.create({
     margin: 8,
     height: '100%',
     borderRadius: 8,
-    
+    backgroundColor: '#FFFFFF',
+  },
+  darkModeStoryItem: {
+    backgroundColor: '#333333',
   },
   storyImage: {
     width: '100%',
@@ -74,6 +100,29 @@ const styles = StyleSheet.create({
   storyTitle: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: '#333333',
+  },
+  darkModeStoryTitle: {
+    color: '#FFFFFF',
+  },
+  storyContent: {
+    fontSize: 18,
+    lineHeight: 28,
+    color: '#333333',
+  },
+  darkModeStoryContent: {
+    color: '#FFFFFF',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+
+  darkModeToggleIcon: {
+    padding: 8,
+    borderRadius: 8,
   },
 });
 
