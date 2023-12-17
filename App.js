@@ -8,6 +8,9 @@ import CategoryScreen from '../Ebook/screens/CategoryScreen';
 import BookScreen from '../Ebook/screens/BookScreen';
 import StoryScreen from '../Ebook/screens/StoryScreen';
 import SettingsScreen from '../Ebook/screens/SettingsScreen';
+import AboutUsScreen from './screens/AboutUsScreen';
+import PrivacyScreen from './screens/PrivacyScreen';
+
 
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
@@ -21,6 +24,9 @@ const HomeStack = () => (
     <Stack.Screen  name="App" component={HomeScreen} />
     <Stack.Screen name="Category" component={CategoryScreen} />
     <Stack.Screen name="Book" component={BookScreen} />
+    <Stack.Screen  name="settings" component={SettingsScreen} />
+    <Stack.Screen name="AboutUs" component={AboutUsScreen} />
+    <Stack.Screen name="Privacy" component={PrivacyScreen} />
   </Stack.Navigator>
 );
 
